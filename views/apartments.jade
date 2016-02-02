@@ -1,4 +1,17 @@
 extends layout
 
 block content
-  h1 Apartments
+  if totalRent
+    h3 Total Rent: $#{totalRent}.00
+  if apartments
+    Total Properties: #{apartments.length}
+  if apartments
+    ul#apartments
+      each place in apartments
+        li.col-xs-4.propertyListing
+          a(href="/apartments/#{place.id}")
+            img(src="#{place.imageURL}")
+            p Rooms: #{place.rooms}
+            p Rent Per Room: $#{place.rentPerRoom}.00
+            p Rentable Area: #{place.rentPerRoom} ft
+              sup 2

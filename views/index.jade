@@ -1,16 +1,12 @@
 extends layout
 
+block links
+  link(rel="stylesheet", href="stylesheets/index.css")
 block content
-  h3 Total Rent: $#{totalRent}.00
-  h3 Total Properties: #{apartments.length}
-  ul#apartments
-    each place in apartments
-      li.col-xs-4.propertyListing
-        a(href="/apartments/#{place.id}")
-          img(src="#{place.imageURL}")
-          p Rooms: #{place.rooms}
-          p Rent Per Room: $#{place.rentPerRoom}.00
-          p Rentable Area: #{place.rentPerRoom} ft
-            sup 2
+  h1
+    = "Property Management 1,000,000!!!"
+  #splashContainer
+    #splashCover
+    img(src="http://www.care2cure.com/sites/default/files/list21.jpg")#spashImage
 
 

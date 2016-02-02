@@ -6,9 +6,28 @@ var router = express.Router();
 var Apartment = require('../models/apartment');
 var Tenant = require('../models/tenant');
 
-router.get('/', function(req, res) {
-	res.send('list of apartments');
-}) // apartments page
+router.get('/', function(req, res, next) {
+	var totalRent = 0;
+	Apartment.find({}, function(err, apartments) {
+		if(apartments.length === 0) return res.render("noapartments");
+
+		if (err) return res.status(400).send(err);
+		
+		apartments.forEach(function(apartment, i) {
+			var aptRent = apartment.rentPerRoom;
+			Tenant.find({apartmentId: apartment.id}, function(err, tenants) {
+				totalRent += apartment.rentPerRoom*tenants.length;
+				if(i === apartments.length -1){
+					var renderData = {};
+					renderData.apartments = apartments;
+					renderData.title = "We're Awesome!";
+					renderData.totalRent = totalRent;
+					return res.render('apartments', renderData);
+				}
+			});
+		});
+	});
+});
 
 router.post('/', function(req, res) {
 	Apartment.create(req.body, function(err, savedApartment) {

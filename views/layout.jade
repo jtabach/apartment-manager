@@ -5,10 +5,13 @@ html
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css")
     link(rel="stylesheet", href='/stylesheets/style.css')
+    block links
   body
-    .row.nav
+    .row#nav
         a(href="/")#home
-            button.btn.btn-default Home
+          button.btn.btn-default Home
+        a(href="/apartments")#apartments
+          button.btn.btn-default Apartments
         a(href="/tenants")#tenantsNav
             button.btn.btn-default Tenants
         a(href="/add")#add

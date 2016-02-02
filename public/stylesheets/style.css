@@ -57,6 +57,29 @@ img {
 	cursor: default;
 }
 
-.nav {
+#nav {
 	margin-bottom: 24px;
+}
+
+#splashContainer {
+	position: fixed;
+	width: 100%;
+	min-width: 1080px;
+	top: 0px;
+	left: 0px;
+	min-height: 1200px;
+	z-index: -1;
+}
+
+#splashCover {
+	background-color: rgba(250, 250, 250, 0);
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+}
+
+#splashImage {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
 }
