@@ -25,4 +25,8 @@ router.get('/', function(req, res, next) {
 	});
 });
 
+router.get("/add", function(req, res, next) {
+	res.render("Add");
+})
+
 module.exports = router;

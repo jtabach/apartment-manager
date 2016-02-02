@@ -1,0 +1,39 @@
+extends layout
+
+block content
+	form#newTenant.col-xs-4.col-xs-offset-2
+		h3 Add new person
+		.row
+			label First Name: 
+				input(placeholder="John")#firstName
+			label Last Name: 
+				input(placeholder="Doe")#lastName
+		.row
+			label Age: 
+				input(placeholder="40" type="number")#age
+		.row
+			label Gender: 
+				input(placeholder="male")#gender
+		.row
+			label Salary: 
+				input(placeholder="84000" type="number")#salary
+		.row
+			input(type="Submit").btn.btn-default
+
+	form#newProperty.col-xs-4.col-xs-offset-1
+		h3 Add new property
+		.row
+			label Rooms: 
+				input(placeholder="3" type="number")#rooms
+		.row
+			label Rent Per Room: 
+				input(placeholder="500" type="number")#rent
+		.row
+			label Image URL: 
+				input(placeholder="http://2010-2014.commerce.gov/sites/default/files/images/2012/september/energy_house_spring_2012_small.jpg")#image
+		.row
+			label Square Footage: 
+				input(placeholder="1750" type="number")#sqaureFootage
+		input(type="Submit").btn.btn-default
+block scripts
+	script(src="javascripts/add.js")
