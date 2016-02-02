@@ -54,4 +54,5 @@ img {
 
 .tenantListings {
 	margin-top: 24px;
+	cursor: default;
 }

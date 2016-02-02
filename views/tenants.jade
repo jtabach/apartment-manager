@@ -3,8 +3,8 @@ extends layout
 block content
   ul.tenantListings
     each tenant in tenants
-      li.col-xs-3.tenantListing
-        div
+      li.col-xs-3.tenantListing(data-mongo = tenant.id)
+        a(href="/apartments/"+tenant.apartmentId)
           p #{tenant.name.first} #{tenant.name.last}
           p Age: #{tenant.age}
           p
