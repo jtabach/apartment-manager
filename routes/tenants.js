@@ -15,12 +15,10 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
   Tenant.create(req.body, function(err, savedTenant) {
-    console.log(Object.keys(req.body));
     savedTenant.name.first = req.body.first;
     savedTenant.name.last = req.body.last;
     delete savedTenant.first;
     delete savedTenant.last;
-    console.log(savedTenant);
     savedTenant.save();
     if(err) return res.status(400).send(err);
     return res.send("Tenant saved:", savedTenant);

@@ -4,35 +4,20 @@ $(document).ready(init)
 
 function init(){
 	$("#newTenant").submit(addTenant);
-	$("#newProperty").submit(clicky);
+	$("#newProperty").submit(addProperty);
 }
 
 function addTenant(e){
 	e.preventDefault();
 	var tenant = {};
-	// tenant.name = {};
 
 	if($("#firstName").val()){
 		tenant.first = $("#firstName").val();
 	}
-	// } else{
-	// 	var name = {}
-	// 	name.first = $("#firstName").val();
-	// 	tenant.name = name;
-	// }
 
 	if($("#lastName").val()){
 		tenant.last = $("#lastName").val();
-			// else{
-			// 	var name = {}
-			// 	name.last = $("#lastName").val();
-			// 	tenant.name = name;
-			// }
 	}
-	// tenant.name = {
-	// 	first: $("#firstName").val(),
-	// 	last: $("#lastName").val()
-	// }
 
 	if($("#age").val()){
 		tenant.age  = $("#age").val();
@@ -43,7 +28,6 @@ function addTenant(e){
 	if($("#salary").val()){
 		tenant.salary = $("#salary").val();
 	}
-	console.log(tenant);
 
 	$.post("/tenants", tenant)
 	.success(function(data){
@@ -54,7 +38,30 @@ function addTenant(e){
 	})
 }
 
-function clicky(e) {
+function addProperty(e) {
 	e.preventDefault();
-	console.log("Clicky!")
+	var apartment = {};
+
+	if($("#rooms").val()){
+		apartment.rooms = $("#rooms").val();
+	}
+
+	if($("#rent").val()){
+		apartment.rentPerRoom = $("#rent").val();
+	}
+
+	if($("#image").val()){
+		apartment.imageURL  = $("#image").val();
+	}
+	if($("#squareFootage").val()){
+		apartment.squareFeet = $("#squareFootage").val().toLowerCase();
+	}
+
+	$.post("/apartments", apartment)
+	.success(function(data){
+		console.log("Added apartment: ",data);
+	})
+	.fail(function(err){
+		alert(err);
+	})
 }
