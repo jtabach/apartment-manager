@@ -9,7 +9,10 @@ var Tenant = require('../models/tenant');
 router.get('/', function(req, res, next) {
 	var totalRent = 0;
 	Apartment.find({}, function(err, apartments) {
-		if(apartments.length === 0) return res.render("noapartments");
+		if(apartments.length === 0){
+			console.log("No apts")
+			return res.render("noapartments");
+		}
 
 		if (err) return res.status(400).send(err);
 		
@@ -37,7 +40,7 @@ router.post('/', function(req, res) {
 })
 
 router.get("/undefined", function(req, res) {
-	res.status(400).send("User is not a current tennant of an apartment, please hit the back button on your browser.");
+	res.render("noapartment");
 })
 
 router.get('/:aptId', function(req, res) {
