@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Apartment Details
+  h2 Rooms: #{rooms}
+  h2 Rent Per Room: $#{rentPerRoom}
+  h2 Square Feet: #{squareFeet} ft
+    sup 2
+  img(src="#{imageURL}")
+
+  h1 #{tenants}
+  button#addTenant Add Tenant
+block scripts
+  script(src="/javascripts/apartmentDetails.js")
