@@ -3,13 +3,11 @@
 var express = require('express');
 var router = express.Router();
 
-var mongoose = require("mongoose");
-
 var Apartment = require('../models/apartment');
 var Tenant = require('../models/tenant');
 
 router.get('/', function(req, res) {
-	res.send('list of tenants');
+	res.send('list of apartments');
 }) // apartments page
 
 router.post('/', function(req, res) {
