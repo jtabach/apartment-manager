@@ -4,21 +4,25 @@ $(document).ready(init);
 
 function init() {
 	$('#addTenant').click(addTenant);
+	popTenants();
 }
 
 function addTenant() {
 	var aptId = location.pathname.substr(location.pathname.lastIndexOf("/")+1);
-	var staticTenant = "/56b0360a8b291791ad461655";
+	var staticTenant = $("#homeless option:selected").data("mongo");
 	$.ajax({
-		url: `/tenants${staticTenant}`,
+		url: `/tenants/${staticTenant}`,
 		method: "PUT",
 		data: {aptId: aptId}
 	})
 	.success(function(data) {
-		console.log('tenant', staticTenant);
-		console.log('aptId', aptId);
+		$("#homeless option:selected").remove();
 	})
 	.fail(function(err) {
-		console.log(err);
+		console.error(err);
 	});
+}
+
+function popTenants(){
+
 }

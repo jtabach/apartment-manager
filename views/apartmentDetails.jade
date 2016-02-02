@@ -2,13 +2,18 @@ extends layout
 
 block content
   h1 Apartment Details
-  h2 Rooms: #{rooms}
-  h2 Rent Per Room: $#{rentPerRoom}
-  h2 Square Feet: #{squareFeet} ft
+  h2 Rooms: #{apartment.rooms}
+  h2 Rent Per Room: $#{apartment.rentPerRoom}
+  h2 Square Feet: #{apartment.squareFeet} ft
     sup 2
-  img(src="#{imageURL}")
+  img(src="#{apartment.imageURL}")
 
-  h1 #{tenants}
+  h1 #{apartment.tenants}
   button#addTenant Add Tenant
+  div#homelessContainer
+    select#homeless
+      each bum in homeless
+        option(data-mongo = bum.id)
+          = bum.name.first + " " + bum.name.last
 block scripts
   script(src="/javascripts/apartmentDetails.js")

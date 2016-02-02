@@ -7,6 +7,7 @@ var Tenant = require('../models/tenant');
 var Apartment = require('../models/apartment');
 
 router.get('/', function(req, res) {
+
   res.send('list of tenants');
 });
 

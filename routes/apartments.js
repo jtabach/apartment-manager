@@ -20,11 +20,18 @@ router.post('/', function(req, res) {
 })
 
 router.get('/:aptId', function(req, res) {
+	var renderData = {};
 	Apartment.findById(req.params.aptId, function(err, apartment) {
 		if (err) return res.status(400).send(err);
 		Tenant.find({apartmentId: req.params.aptId}, function (err, tenants) {
 			if (err) return res.status(400).send(err);
-			return tenants ? res.render('apartmentDetails', apartment) : res.render('apartmentDetails', apartment, tenants);
+			renderData.apartment = apartment;
+			Tenant.find({apartmentId: {$exists: false}}, function(err, homeless){
+				if (err) return res.status(400).send(err);
+				if(tenants) renderData.tenants = tenants;
+				renderData.homeless = homeless;
+				res.render("apartmentDetails", renderData);
+			})
 		});
 	});
 }) // single apartment info
