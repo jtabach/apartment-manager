@@ -25,7 +25,8 @@ block content
           tr
             td= person.name.first + " " + person.name.last
             td= person.age
-            td= person.gender 
+            td
+              = person.gender.slice(0, 1).toUpperCase() + person.gender.slice(1) 
             td
               button(data-mongo = person.id).removeTenant.btn.btn-default Remove Tenant
 block scripts

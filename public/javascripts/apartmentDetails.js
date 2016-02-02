@@ -6,6 +6,7 @@ function init() {
 	$('#addTenant').click(addTenant);
 	checkSpace();
 	$("tbody").on("click", ".removeTenant", removeTenant);
+	checkHomeless();
 }
 
 function addTenant() {
@@ -40,10 +41,15 @@ function removeTenant(){
 		method: "DELETE"
 	})
 	.success(function(data){
-		console.log("data", data);
-		$this.remove();
+		location.reload();
 	})
 	.fail(function(err){
 		return console.error(err);
 	})
+}
+
+function checkHomeless() {
+	if($("select option").length === 0){
+		$("#homelessContainer").hide();
+	}
 }
