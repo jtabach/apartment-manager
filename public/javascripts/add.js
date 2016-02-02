@@ -32,6 +32,7 @@ function addTenant(e){
 	$.post("/tenants", tenant)
 	.success(function(data){
 		console.log("Added tenant: ",data);
+		location.href = "/tenants";
 	})
 	.fail(function(err){
 		alert(err);
@@ -60,6 +61,7 @@ function addProperty(e) {
 	$.post("/apartments", apartment)
 	.success(function(data){
 		console.log("Added apartment: ",data);
+		location.href = "/";
 	})
 	.fail(function(err){
 		alert(err);
