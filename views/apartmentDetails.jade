@@ -19,8 +19,13 @@ block content
               = bum.name.first + " " + bum.name.last
       button#addTenant.btn.btn-default.col-xs-1 Add Tenant
             
-    #tenantswrapper.container
+    #tenantswrapper
       table#tenants.table
+        tr
+          th.col-xs-3(style="text-align: center") Tenant
+          th.col-xs-3(style="text-align: center") Age
+          th.col-xs-3(style="text-align: center") Gender
+          th.col-xs-3(style="text-align: center") Remove Tenant
         each person in tenants
           tr
             td= person.name.first + " " + person.name.last
