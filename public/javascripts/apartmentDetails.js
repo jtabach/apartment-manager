@@ -27,8 +27,10 @@ function addTenant() {
 }
 
 function checkSpace(){
-	var tenants = $("#tenants").find("tr").length;
+	var tenants = $("#tenants").find("tr").length - 1;
 	var rooms = +$("#rooms").text().match(/[0-9]+/g);
+	console.log(rooms);
+	console.log(tenants);
 	if(tenants >= rooms){
 		$("#homelessContainer").hide();
 	}
