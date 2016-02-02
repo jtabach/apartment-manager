@@ -17,6 +17,10 @@ router.post('/', function(req, res) {
 	});
 })
 
+router.get("/undefined", function(req, res) {
+	res.status(400).send("User is not a current tennant of an apartment, please hit the back button on your browser.");
+})
+
 router.get('/:aptId', function(req, res) {
 	var renderData = {};
 	Apartment.findById(req.params.aptId, function(err, apartment) {
