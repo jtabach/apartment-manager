@@ -29,7 +29,15 @@ router.put("/:tenantId", function(req, res) {
       tenant.save();
     })
   })
-  res.send("put recieved");
+  res.send("Tenant moved into appartment");
+});
+
+router.delete("/:tenantId", function(req, res){
+  Tenant.findById(req.params.tenantId, function(err, tenant){
+      tenant.apartmentId = undefined;
+      tenant.save();
+  })
+  res.send("Tenant evicted");
 });
 
 module.exports = router;

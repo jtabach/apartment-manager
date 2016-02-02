@@ -5,6 +5,7 @@ $(document).ready(init);
 function init() {
 	$('#addTenant').click(addTenant);
 	checkSpace();
+	$("tbody").on("click", ".removeTenant", removeTenant);
 }
 
 function addTenant() {
@@ -17,7 +18,7 @@ function addTenant() {
 	})
 	.success(function(data) {
 		$("#homeless option:selected").remove();
-		checkSpace();
+		location.reload();
 	})
 	.fail(function(err) {
 		console.error(err);
@@ -30,4 +31,19 @@ function checkSpace(){
 	if(tenants >= rooms){
 		$("#homelessContainer").hide();
 	}
+}
+
+function removeTenant(){
+	var $this = $(this).closest("tr");
+	$.ajax({
+		url: `/tenants/${$(this).data("mongo")}`,
+		method: "DELETE"
+	})
+	.success(function(data){
+		console.log("data", data);
+		$this.remove();
+	})
+	.fail(function(err){
+		return console.error(err);
+	})
 }
