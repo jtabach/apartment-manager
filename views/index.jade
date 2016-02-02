@@ -1,12 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  h3 Total Rent: #{totalRent}
-  h3 Total Apartments: #{apartments.length}
+  h3 Total Rent: $#{totalRent}.00
+  h3 Total Properties: #{apartments.length}
   ul#apartments
     each place in apartments
-      li.col-xs-4
+      li.col-xs-4.propertyListing
         a(href="/apartments/#{place.id}")
           img(src="#{place.imageURL}")
           p Rooms: #{place.rooms}

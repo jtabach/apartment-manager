@@ -7,8 +7,10 @@ var Tenant = require('../models/tenant');
 var Apartment = require('../models/apartment');
 
 router.get('/', function(req, res) {
-
-  res.send('list of tenants');
+	Tenant.find({}, function(err, tenants){
+		if(err) return res.status(400).send(err);
+	  res.render('tenants', {tenants: tenants});
+	})
 });
 
 router.post('/', function(req, res) {

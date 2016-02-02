@@ -1,12 +1,15 @@
 doctype html
 html
   head
-    title= title
+    title Property Manager 2000!!!
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
     link(rel="stylesheet", href='/stylesheets/style.css')
   body
-    a(href="/")#home
-        button.btn.btn-default Home
+    .row.nav
+        a(href="/")#home
+            button.btn.btn-default Home
+        a(href="/tenants")#tenantsNav
+            button.btn.btn-default Tenants
     .container
         block content
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")

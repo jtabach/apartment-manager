@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  ul.tenantListings
+    each tenant in tenants
+      li.col-xs-3.tenantListing
+        div
+          p #{tenant.name.first} #{tenant.name.last}
+          p Age: #{tenant.age}
+          p
+            = "Gender: " + tenant.gender.slice(0, 1).toUpperCase() + tenant.gender.slice(1)
+          p Salary: $#{tenant.salary}

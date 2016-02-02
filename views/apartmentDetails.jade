@@ -1,30 +1,32 @@
 extends layout
 
 block content
-  h1 Apartment Details
-  h2#rooms Rooms: #{apartment.rooms}
-  h2 Rent Per Room: $#{apartment.rentPerRoom}
-  h2 Square Feet: #{apartment.squareFeet} ft
+  h2 Apartment Details
+  h4#rooms Rooms: #{apartment.rooms}
+  h4 Rent Per Room: $#{apartment.rentPerRoom}
+  h4 Square Feet: #{apartment.squareFeet} ft
     sup 2
-  img(src="#{apartment.imageURL}")
+  .row
+    img(src="#{apartment.imageURL}").col-xs-8.col-xs-offset-2
   
-
-  h1 #{apartment.tenants}
-  div#homelessContainer
-    button#addTenant Add Tenant
-    select#homeless
-      each bum in homeless
-        option(data-mongo = bum.id)
-          = bum.name.first + " " + bum.name.last
-          
-  div#tenantswrapper.container
-    table#tenants.table
-      each person in tenants
-        tr
-          td= person.name.first + " " + person.name.last
-          td= person.age
-          td= person.gender 
-          td
-            button(data-mongo = person.id).removeTenant Remove Tenant
+  .row
+    h1 #{apartment.tenants}
+    #homelessContainer
+      .form-group.col-xs-7.col-xs-offset-2
+        select#homeless.form-control
+          each bum in homeless
+            option(data-mongo = bum.id)
+              = bum.name.first + " " + bum.name.last
+      button#addTenant.btn.btn-default.col-xs-1 Add Tenant
+            
+    #tenantswrapper.container
+      table#tenants.table
+        each person in tenants
+          tr
+            td= person.name.first + " " + person.name.last
+            td= person.age
+            td= person.gender 
+            td
+              button(data-mongo = person.id).removeTenant.btn.btn-default Remove Tenant
 block scripts
   script(src="/javascripts/apartmentDetails.js")

@@ -1,3 +1,7 @@
+* {
+  text-align: center;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -18,4 +22,36 @@ ul {
 
 img {
   width: 100%;
+}
+
+.btn, .btn-default {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.propertyListing{
+	margin-bottom: 18px;
+}
+
+.propertyListing img{
+	margin-bottom: 8px;
+	padding-top: 15px;
+}
+.propertyListing:hover{
+	background-color: rgb(240, 240, 240);
+	cursor: pointer;
+}
+
+.tenantListing {
+	background-color: rgb(229, 255, 255);
+	border-radius: 12px;
+	border: 2px solid black;
+	padding: 8px;
+	margin: 0px 16px 16px 16px;
+	padding-top: 16px;
+	width: calc(25% - 32px);
+}
+
+.tenantListings {
+	margin-top: 24px;
 }
