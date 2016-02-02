@@ -4,7 +4,7 @@ $(document).ready(init);
 
 function init() {
 	$('#addTenant').click(addTenant);
-	popTenants();
+	checkSpace();
 }
 
 function addTenant() {
@@ -17,12 +17,17 @@ function addTenant() {
 	})
 	.success(function(data) {
 		$("#homeless option:selected").remove();
+		checkSpace();
 	})
 	.fail(function(err) {
 		console.error(err);
 	});
 }
 
-function popTenants(){
-
+function checkSpace(){
+	var tenants = $("#tenants").find("tr").length;
+	var rooms = +$("#rooms").text().match(/[0-9]+/g);
+	if(tenants >= rooms){
+		$("#homelessContainer").hide();
+	}
 }
