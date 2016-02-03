@@ -10,7 +10,7 @@ router.get("/", function(req, res, next) {
 })
 
 router.get("/add", function(req, res, next) {
-	res.render("Add");
+	res.render("add");
 })
 
 module.exports = router;
