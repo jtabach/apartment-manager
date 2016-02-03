@@ -61,7 +61,7 @@ function addProperty(e) {
 	$.post("/apartments", apartment)
 	.success(function(data){
 		console.log("Added apartment: ",data);
-		location.href = "/";
+		location.href = "/apartments";
 	})
 	.fail(function(err){
 		console.error(err);
