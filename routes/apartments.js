@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 		}
 
 		if (err) return res.status(400).send(err);
-		
+
 		apartments.forEach(function(apartment, i) {
 			var aptRent = apartment.rentPerRoom;
 			Tenant.find({apartmentId: apartment.id}, function(err, tenants) {
@@ -35,7 +35,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res) {
 	Apartment.create(req.body, function(err, savedApartment) {
 		if(err) return res.status(400).send(err);
-		return res.send("Apartment saved:", savedApartment);
+		return res.send("Apartment saved:");
 	});
 })
 
