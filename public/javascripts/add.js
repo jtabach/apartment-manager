@@ -35,7 +35,7 @@ function addTenant(e){
 		location.href = "/tenants";
 	})
 	.fail(function(err){
-		alert(err);
+		console.error(err);
 	})
 }
 
@@ -64,6 +64,6 @@ function addProperty(e) {
 		location.href = "/";
 	})
 	.fail(function(err){
-		alert(err);
+		console.error(err);
 	})
 }
