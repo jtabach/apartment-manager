@@ -21,7 +21,7 @@ router.post('/', function(req, res) {
     delete savedTenant.last;
     savedTenant.save();
     if(err) return res.status(400).send(err);
-    return res.send("Tenant saved:", savedTenant);
+    return res.send("Tenant saved:");
   });
 })
 
