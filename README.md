@@ -4,7 +4,8 @@
 
 #### Node.js - Express - MongoDB / Mongoose
 
-Property Manager allows an owner/user to manage their properties, tenants, available rooms and monthly rent.
+> Property Manager allows an owner/user to manage their properties, tenants, 
+> available rooms and monthly rent.
 
 ### Navigation
 
@@ -14,7 +15,7 @@ User may navigate to a variety of subpages including a list of owned properites,
 
 A property may be added by the user by navigating to the add page and filling out the add property form. User may record the number of rooms in the apartemnt, the cost per room, the total square footing and an image of the home.
 
-### Adding a Potential Tenant
+### Adding a Tenant
 
 A potential tenant may be added by navigating to the add page and filling out the add tenant form. The User may list information for the potential tenant's first name, last name, age, gender, and salary.
 
